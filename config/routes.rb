@@ -3,22 +3,21 @@ Rails.application.routes.draw do
   # read all restaurants
 
   get 'tasks', to: 'tasks#index'
-
-  # read one restaurant
-
-  get 'tasks/:id', to: 'tasks#show'
-
   # create one restaurant (2 requests)
 
   get 'tasks/new', to: 'tasks#new'
-  get 'tasks', to: 'tasks#create'
+  post 'tasks', to: 'tasks#create'
 
   # update one restaurant
 
-  get 'tasks/:id/edit', to: 'tasks#edit'
+  get 'tasks/:id/edit', to: 'tasks#edit', as: :task_edit
   patch 'tasks/:id', to: 'tasks#update'
 
   # delete one restaurant
 
-  delete 'tasks/:id', to: 'tasks#destroy'
+  delete 'tasks/:id', to: 'tasks#destroy', as: :task_delete
+
+  # read one restaurant
+
+  get 'tasks/:id', to: 'tasks#show', as: :task
 end

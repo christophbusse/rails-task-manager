@@ -1,0 +1,22 @@
+  <br>
+<% @tasks.each do |task| %>
+  <% if task.completed %>
+  <span><i class="far fa-check-square"></i></span>
+  <% else %>
+  <span><i class="far fa-square"></i></span>
+  <% end %>
+  <span><%= task.title %></span>
+  <span> <i class="fas fa-search-plus"></i><%= link_to "More details", task_path(task) %></span>  <br>
+    <br>
+    <br>
+  <span>
+
+  <%= link_to "Delete", task_delete_path(task),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+      </span><br>
+
+<% end %>
+<p><i class="far fa-calendar-plus"></i> <%= link_to "Add new task", tasks_new_path %></p>
+
+

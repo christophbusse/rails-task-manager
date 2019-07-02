@@ -1,0 +1,13 @@
+  <span><%= @task.title %></span>
+  <span><%= @task.details %></span>
+  <% if @task.completed %>
+  <span><i class="far fa-check-square"></i></span>
+  <% else %>
+  <span><i class="far fa-square"></i></span>
+  <% end %>
+  <br><br><br>
+   <p> <%= link_to "Back to all tasks", tasks_path %></p>
+   <br>
+
+  <p><%= link_to "Edit task", task_edit_path(@task) %>
+</p>
